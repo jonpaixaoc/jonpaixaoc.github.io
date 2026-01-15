@@ -1,0 +1,212 @@
+/* Zera tudo para começar limpo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black; /* Fundo preto chique */
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Impede rolagem normal */
+}
+
+/* CONFIGURAÇÃO DO MENU */
+.menu {
+    position: fixed; /* Fica preso na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex; /* Itens lado a lado */
+    justify-content: space-between; /* Espalha: um na esquerda, outro na direita */
+    padding: 30px 50px;
+    background: transparent; /* Transparente */
+    z-index: 10; /* Fica por cima das fotos */
+    text-transform: uppercase; /* Letras maiúsculas */
+    font-size: 12px;
+    letter-spacing: 2px; /* Espaço entre as letras */
+}
+
+.links a {
+    color: white;
+    text-decoration: none; /* Tira o sublinhado */
+    margin-left: 20px;
+    opacity: 0.7;
+}
+
+.links a:hover {
+    opacity: 1; /* Brilha quando passa o mouse */
+}
+
+/* A GALERIA HORIZONTAL */
+.galeria {
+    display: flex; /* Coloca as fotos em linha */
+    height: 100vh; /* 100% da altura da tela */
+    width: 100%;
+    overflow-x: auto; /* Permite rolar para o lado */
+    align-items: center; /* Centraliza verticalmente */
+    
+    /* Esconde a barra de rolagem feia */
+    scrollbar-width: none; /* Firefox */
+}
+.galeria::-webkit-scrollbar { 
+    display: none; /* Chrome */
+}
+
+/* AS FOTOS */
+.item {
+    min-width: 400px; /* Tamanho da foto */
+    height: 60vh; /* Altura da foto */
+    margin-left: 50px; /* Espaço entre elas */
+    padding-left: 50px; /* Espaço inicial */
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Preenche o espaço sem esticar */
+    filter: grayscale(100%); /* Deixa preto e branco */
+    transition: 0.5s; /* Animação suave */
+}
+
+/* Quando passa o mouse na foto */
+.item img:hover {
+    filter: grayscale(0%); /* Volta a ter cor */
+    transform: scale(1.05); /* Aumenta um pouquinho */
+}
+
+/* CONFIGURAÇÃO DO RODAPÉ */
+.rodape {
+    position: fixed; /* Prende na tela */
+    bottom: 0;      /* Cola no chão */
+    left: 0;
+    width: 100%;    /* Ocupa a largura toda */
+    
+    text-align: center; /* Texto no meio */
+    padding: 20px;
+    
+    /* Um fundo degradê preto para o texto ficar legível 
+       mesmo se passar por cima de uma foto clara */
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    
+    color: #888; /* Cinza claro para não chamar tanta atenção quanto o menu */
+    font-size: 11px;
+    letter-spacing: 1px;
+    z-index: 10; /* Garante que fique por cima das fotos */
+}
+
+/* Estilo do Link dentro do rodapé */
+.rodape a {
+    color: white;       /* O link fica branco para destacar do texto cinza */
+    text-decoration: none;
+    font-weight: bold;  /* Deixa o link mais gordinho */
+    transition: 0.3s;
+    border-bottom: 1px solid transparent; /* Prepara uma linha invisível */
+}
+
+/* Quando passa o mouse no link */
+.rodape a:hover {
+    color: #ccc;
+    border-bottom: 1px solid #ccc; /* Faz aparecer uma linha embaixo */
+}
+
+/* =========================================
+   ESTILO DA PÁGINA DE POLÍTICAS (CLEAN)
+   ========================================= */
+
+/* Sobrepõe o fundo preto do site principal */
+body.pagina-branca {
+    background-color: #ffffff !important;
+    color: #333333;
+    overflow-y: auto; /* Permite rolar a página */
+    overflow-x: hidden;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fonte limpa */
+}
+
+/* A folha de papel centralizada */
+.documento {
+    max-width: 800px; /* Largura ideal para leitura */
+    margin: 60px auto; /* Centraliza na tela */
+    padding: 0 20px;
+}
+
+/* O botão de voltar */
+.voltar {
+    display: inline-block;
+    margin-bottom: 40px;
+    color: #888;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.voltar:hover {
+    color: #000;
+    transform: translateX(-5px); /* Move um pouquinho pra esquerda */
+}
+
+/* Títulos */
+.documento header {
+    text-align: center;
+    margin-bottom: 60px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 40px;
+}
+
+.documento h1 {
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.documento .subtitulo {
+    color: #666;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.documento h2 {
+    font-size: 16px;
+    color: #000;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-left: 3px solid #000; /* Detalhe elegante na lateral */
+    padding-left: 15px;
+}
+
+/* Textos e Listas */
+.documento p {
+    font-size: 16px;
+    line-height: 1.8; /* Espaçamento entre linhas confortável */
+    color: #444;
+    margin-bottom: 20px;
+    text-align: justify; /* Texto justificado fica elegante em documentos */
+}
+
+.documento ul {
+    margin-bottom: 20px;
+    padding-left: 40px;
+}
+
+.documento li {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+/* Rodapé simples da página branca */
+.documento footer {
+    margin-top: 80px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+}
