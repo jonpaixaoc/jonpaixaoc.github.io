@@ -8,14 +8,14 @@
 }
 
 body {
-    background-color: black; /* Fundo preto chique */
+    background-color: black;
     color: white;
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Impede rolagem na Home */
+    overflow: hidden; /* Home não rola para baixo */
 }
 
 /* =========================================
-   2. MENU SUPERIOR (FIXO)
+   2. MENU SUPERIOR
    ========================================= */
 .menu {
     position: fixed;
@@ -45,7 +45,7 @@ body {
 }
 
 /* =========================================
-   3. GALERIA HORIZONTAL (HOME)
+   3. GALERIA (HOME)
    ========================================= */
 .galeria {
     display: flex;
@@ -55,9 +55,7 @@ body {
     align-items: center;
     scrollbar-width: none;
 }
-.galeria::-webkit-scrollbar { 
-    display: none;
-}
+.galeria::-webkit-scrollbar { display: none; }
 
 .item {
     min-width: 400px;
@@ -80,138 +78,49 @@ body {
 }
 
 /* =========================================
-   4. RODAPÉ (CENTRALIZADO / SEM COLUNAS)
+   4. RODAPÉ (LINHAS HORIZONTAIS LARGAS)
    ========================================= */
 .rodape {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.95); /* Fundo escuro */
-    color: #999;
+    background: black; /* Fundo preto sólido */
+    border-top: 1px solid #222; /* Linha sutil */
+    padding: 15px 0;
+    z-index: 100;
+    text-align: center;
     font-size: 11px;
     letter-spacing: 0.5px;
-    z-index: 40;
-    border-top: 1px solid #333;
-    padding: 15px 20px;
-    text-align: center; /* Centraliza tudo */
+    color: #888;
 }
 
-.rodape-conteudo {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 8px; /* Espaço entre as linhas */
+/* Cada linha ocupa a largura toda */
+.linha-rodape {
+    margin-bottom: 6px;
+    width: 100%;
+    padding: 0 20px; /* Margem nas laterais */
 }
 
-.linha-info {
-    line-height: 1.6;
-}
-
-/* Estilo do separador "|" */
-.separador {
-    margin: 0 8px;
-    color: #444;
-}
-
-/* Links do rodapé */
 .rodape a {
     color: #ccc;
     text-decoration: none;
     transition: 0.3s;
 }
+.rodape a:hover { color: white; }
 
-.rodape a:hover {
-    color: white;
-    text-decoration: underline;
+.separador {
+    margin: 0 10px;
+    color: #333;
 }
 
-/* Destaque para o link de políticas */
 .link-politicas {
     color: white !important;
     font-weight: bold;
 }
 
 /* =========================================
-   5. PÁGINA DE POLÍTICAS (CLEAN/BRANCA)
-   ========================================= */
-body.pagina-branca {
-    background-color: #ffffff !important;
-    color: #333333;
-    overflow-y: auto;
-    overflow-x: hidden;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-.documento {
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 0 20px 120px 20px; /* Padding extra para rodapé */
-}
-
-.voltar {
-    display: inline-block;
-    margin-bottom: 40px;
-    color: #888;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-.voltar:hover {
-    color: #000;
-    transform: translateX(-5px);
-}
-
-.documento header {
-    text-align: center;
-    margin-bottom: 60px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 40px;
-}
-
-.documento h1 {
-    font-size: 28px;
-    letter-spacing: 2px;
-    color: #000;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.documento .subtitulo {
-    color: #666;
-    font-size: 14px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.documento h2 {
-    font-size: 16px;
-    color: #000;
-    margin-top: 40px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-left: 3px solid #000;
-    padding-left: 15px;
-}
-
-.documento p, .documento li {
-    font-size: 16px;
-    line-height: 1.8;
-    color: #444;
-    margin-bottom: 20px;
-    text-align: justify;
-}
-
-.documento ul {
-    margin-bottom: 20px;
-    padding-left: 40px;
-}
-
-/* =========================================
-   6. PÁGINA DE CONTATO (DARK)
+   5. PÁGINA DE CONTATO
    ========================================= */
 body.pagina-contato {
     overflow-y: auto;
@@ -225,130 +134,90 @@ body.pagina-contato {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 20px 180px 20px; /* Espaço extra por conta do rodapé */
+    /* Ajuste de padding para não bater no rodapé */
+    padding: 100px 20px 140px 20px; 
 }
 
 .cartao-contato {
-    max-width: 600px;
+    max-width: 700px;
     width: 100%;
     text-align: center;
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 1s;
 }
 
 .cartao-contato h1 {
-    font-size: 32px;
+    font-size: 30px;
     text-transform: uppercase;
     letter-spacing: 4px;
     margin-bottom: 10px;
-    font-weight: normal;
     color: white;
 }
 
 .cartao-contato .intro {
-    color: #888;
-    margin-bottom: 50px;
-    font-size: 14px;
-    letter-spacing: 1px;
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 13px;
 }
 
-.cartao-contato h2 {
-    font-size: 12px;
+.info-grupo {
+    margin-bottom: 40px;
+}
+
+.info-grupo h2 {
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #555;
+    color: #444;
     margin-bottom: 20px;
-    margin-top: 30px;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #222;
     display: inline-block;
     padding-bottom: 5px;
 }
 
-.info-grupo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
+/* Botões grandes da página de contato */
 .botao-link {
+    display: block;
     color: white;
     text-decoration: none;
     font-size: 18px;
+    padding: 8px 0;
     transition: 0.3s;
-    padding: 10px 20px;
-    border: 1px solid transparent;
-    display: block;
 }
-
-.botao-link:hover {
-    color: #ccc;
-    border: 1px solid #333;
-    letter-spacing: 1px;
-}
+.botao-link:hover { color: #ccc; letter-spacing: 1px; }
 
 .endereco p {
     color: #ccc;
     line-height: 1.6;
-    font-size: 16px;
     margin-bottom: 20px;
 }
 
 .ver-mapa {
-    color: #888;
-    font-size: 12px;
+    font-size: 11px;
+    color: #666;
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: 0.3s;
     border: 1px solid #333;
-    padding: 8px 15px;
-    display: inline-block;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    transition: 0.3s;
 }
+.ver-mapa:hover { background: white; color: black; }
 
-.ver-mapa:hover {
-    background-color: white;
-    color: black;
-    border-color: white;
+/* Página Branca (Políticas) */
+body.pagina-branca {
+    background-color: white !important;
+    color: #333;
+    overflow-y: auto;
+    font-family: sans-serif;
 }
+.documento { max-width: 800px; margin: 50px auto; padding: 20px; }
+.voltar { color: #888; text-decoration: none; display: block; margin-bottom: 30px; font-weight: bold;}
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* =========================================
-   7. RESPONSIVIDADE (CELULARES)
-   ========================================= */
+/* CELULAR */
 @media (max-width: 768px) {
-    /* No celular, o rodapé deixa de ser fixo e os itens ficam em pilha */
-    .rodape {
-        position: relative;
-        text-align: center;
-        padding-bottom: 30px;
-    }
-    
-    .linha-info {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        margin-bottom: 15px;
-    }
-
-    /* Esconde o separador | no celular pois vai ficar um embaixo do outro */
-    .separador {
-        display: none;
-    }
-
-    .item {
-        min-width: 80vw;
-        margin-left: 20px;
-        padding-left: 0;
-    }
-
-    .cartao-contato h1 {
-        font-size: 24px;
-    }
-    .botao-link {
-        font-size: 16px;
-    }
+    .rodape { position: relative; background: #050505; padding-bottom: 30px;}
+    .linha-rodape { display: flex; flex-direction: column; gap: 5px; margin-bottom: 15px; }
+    .separador { display: none; }
+    .item { min-width: 85vw; margin-left: 20px; padding: 0; }
 }
