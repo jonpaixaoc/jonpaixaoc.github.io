@@ -209,4 +209,127 @@ body.pagina-branca {
     text-align: center;
     font-size: 12px;
     color: #aaa;
+
+}
+
+/* =========================================
+   ESTILO DA PÁGINA DE CONTATO (DARK)
+   ========================================= */
+
+/* Permite rolagem caso a tela seja pequena na vertical */
+body.pagina-contato {
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+
+.container-contato {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px 80px 20px; /* Espaço para menu e rodapé */
+    background: black; /* Fundo sólido */
+    /* Opcional: Uma imagem de fundo escura bem sutil ficaria linda aqui */
+    /* background: url('caminho-da-sua-imagem.jpg') no-repeat center center/cover; */
+}
+
+.cartao-contato {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out; /* Efeito suave ao abrir */
+}
+
+/* Títulos */
+.cartao-contato h1 {
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.cartao-contato .intro {
+    color: #888;
+    margin-bottom: 50px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.cartao-contato h2 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #555; /* Cinza escuro para subtítulos */
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Grupos de informação */
+.info-grupo {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Espaço entre os links */
+}
+
+/* Links de Contato (Botões minimalistas) */
+.botao-link {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+}
+
+.botao-link:hover {
+    color: #ccc;
+    border: 1px solid #333; /* Borda sutil ao passar o mouse */
+    letter-spacing: 1px; /* Efeito elegante de expansão */
+}
+
+/* Estilo do Endereço */
+.endereco p {
+    color: #ccc;
+    line-height: 1.6;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.ver-mapa {
+    color: #888;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    border: 1px solid #333;
+    padding: 8px 15px;
+}
+
+.ver-mapa:hover {
+    background-color: white;
+    color: black;
+    border-color: white;
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsivo para celulares */
+@media (max-width: 600px) {
+    .cartao-contato h1 {
+        font-size: 24px;
+    }
+    .botao-link {
+        font-size: 16px;
+    }
 }
