@@ -11,11 +11,11 @@ body {
     background-color: black;
     color: white;
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Home não rola para baixo */
+    overflow-x: hidden; /* Evita rolagem lateral indesejada */
 }
 
 /* =========================================
-   2. MENU SUPERIOR
+   2. MENU SUPERIOR (PÁGINA ESCURA)
    ========================================= */
 .menu {
     position: fixed;
@@ -86,7 +86,7 @@ body {
     left: 0;
     width: 100%;
     background: black; /* Fundo preto sólido */
-    border-top: 1px solid #222; /* Linha sutil */
+    border-top: 1px solid #222;
     padding: 15px 0;
     z-index: 100;
     text-align: center;
@@ -95,7 +95,6 @@ body {
     color: #888;
 }
 
-/* Cada linha ocupa a largura toda */
 .linha-rodape {
     margin-bottom: 6px;
     width: 100%;
@@ -124,7 +123,6 @@ body {
    ========================================= */
 body.pagina-contato {
     overflow-y: auto;
-    overflow-x: hidden;
     background-color: black;
 }
 
@@ -203,30 +201,20 @@ body.pagina-contato {
 /* =========================================
    6. PÁGINA DE POLÍTICAS (CORRIGIDA)
    ========================================= */
+/* Fundo Branco obrigatório */
 body.pagina-branca {
     background-color: #ffffff !important;
-    color: #333333;
-    overflow-y: auto;
+    color: #333333 !important;
+    overflow-y: auto; /* Permite rolar */
     font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Caixa do Documento */
 .documento {
     max-width: 800px;
     margin: 40px auto;
-    padding: 20px 40px 120px 40px; /* Espaço para o rodapé */
+    padding: 20px 40px 120px 40px; /* Padding bottom grande pro rodapé não cobrir */
 }
-
-/* Link de Voltar */
-.voltar {
-    color: #666;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    display: inline-block;
-    margin-bottom: 40px;
-    transition: 0.3s;
-}
-.voltar:hover { color: black; text-decoration: underline; }
 
 /* Título Principal (H1) */
 .documento h1 {
@@ -245,7 +233,7 @@ body.pagina-branca {
     margin-bottom: 15px;
     text-transform: uppercase;
     color: #111;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ddd; /* Linha cinza */
     padding-bottom: 5px;
     letter-spacing: 1px;
     font-weight: bold;
@@ -254,7 +242,7 @@ body.pagina-branca {
 /* Parágrafos */
 .documento p {
     font-size: 16px;
-    line-height: 1.8;
+    line-height: 1.8; /* Espaçamento entre linhas */
     margin-bottom: 20px;
     text-align: justify;
     color: #444;
@@ -273,6 +261,7 @@ body.pagina-branca {
     line-height: 1.6;
 }
 
+/* Animação */
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
 /* =========================================
