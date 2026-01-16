@@ -78,7 +78,7 @@ body {
 }
 
 /* =========================================
-   4. RODAPÉ (LINHAS HORIZONTAIS LARGAS)
+   4. RODAPÉ (ESTILO LARGO / 3 LINHAS)
    ========================================= */
 .rodape {
     position: fixed;
@@ -99,7 +99,7 @@ body {
 .linha-rodape {
     margin-bottom: 6px;
     width: 100%;
-    padding: 0 20px; /* Margem nas laterais */
+    padding: 0 20px;
 }
 
 .rodape a {
@@ -206,67 +206,88 @@ body.pagina-contato {
 body.pagina-branca {
     background-color: #ffffff !important;
     color: #333333;
-    overflow-y: auto; /* Permite rolar a página */
+    overflow-y: auto;
     font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 .documento {
     max-width: 800px;
     margin: 40px auto;
-    padding: 20px 40px 120px 40px; /* Padding extra embaixo p/ o rodapé não cobrir */
+    padding: 20px 40px 120px 40px; /* Espaço para o rodapé */
 }
+
+/* Link de Voltar */
+.voltar {
+    color: #666;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 40px;
+    transition: 0.3s;
+}
+.voltar:hover { color: black; text-decoration: underline; }
 
 /* Título Principal (H1) */
 .documento h1 {
-    font-size: 26px;
-    margin-bottom: 5px;
+    font-size: 28px;
+    margin-bottom: 10px;
     text-transform: uppercase;
     text-align: center;
     color: #000;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 /* Subtítulos (H2) */
 .documento h2 {
     font-size: 16px;
-    margin-top: 30px;
+    margin-top: 40px;
     margin-bottom: 15px;
     text-transform: uppercase;
-    color: #000;
-    border-bottom: 2px solid #eee; /* Linha cinza elegante */
+    color: #111;
+    border-bottom: 1px solid #ddd;
     padding-bottom: 5px;
     letter-spacing: 1px;
+    font-weight: bold;
 }
 
 /* Parágrafos */
 .documento p {
-    font-size: 15px;
-    line-height: 1.6; /* Espaçamento para leitura fácil */
-    margin-bottom: 15px;
-    text-align: justify; /* Texto alinhado dos dois lados */
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
     color: #444;
 }
 
 /* Listas */
 .documento ul {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding-left: 40px;
 }
 
 .documento li {
-    margin-bottom: 8px;
+    font-size: 16px;
+    margin-bottom: 10px;
     color: #444;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
-/* CELULAR */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* =========================================
+   7. RESPONSIVIDADE (CELULARES)
+   ========================================= */
 @media (max-width: 768px) {
+    /* Ajuste Rodapé Celular */
     .rodape { position: relative; background: #050505; padding-bottom: 30px;}
     .linha-rodape { display: flex; flex-direction: column; gap: 5px; margin-bottom: 15px; }
     .separador { display: none; }
+    
+    /* Ajuste Galeria Celular */
     .item { min-width: 85vw; margin-left: 20px; padding: 0; }
     
-    /* Ajuste Política Celular */
-    .documento { padding: 20px; }
-    .documento h1 { font-size: 20px; }
+    /* Ajuste Texto Política Celular */
+    .documento { padding: 20px 20px 50px 20px; }
+    .documento h1 { font-size: 22px; }
 }
