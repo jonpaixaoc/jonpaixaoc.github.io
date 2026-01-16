@@ -11,7 +11,7 @@ body {
     background-color: black; /* Fundo preto chique */
     color: white;
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Impede rolagem na Home (Galeria) */
+    overflow: hidden; /* Impede rolagem na Home */
 }
 
 /* =========================================
@@ -26,7 +26,7 @@ body {
     justify-content: space-between;
     padding: 30px 50px;
     background: transparent;
-    z-index: 50; /* Bem acima de tudo */
+    z-index: 50;
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 2px;
@@ -51,12 +51,12 @@ body {
     display: flex;
     height: 100vh;
     width: 100%;
-    overflow-x: auto; /* Rolagem lateral */
+    overflow-x: auto;
     align-items: center;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
 }
 .galeria::-webkit-scrollbar { 
-    display: none; /* Chrome */
+    display: none;
 }
 
 .item {
@@ -80,54 +80,42 @@ body {
 }
 
 /* =========================================
-   4. NOVO RODAPÉ (3 COLUNAS)
+   4. RODAPÉ (CENTRALIZADO / SEM COLUNAS)
    ========================================= */
 .rodape {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.95); /* Quase sólido para leitura */
-    color: #aaa;
+    background: rgba(0, 0, 0, 0.95); /* Fundo escuro */
+    color: #999;
     font-size: 11px;
     letter-spacing: 0.5px;
-    z-index: 40; /* Fica acima das fotos */
+    z-index: 40;
     border-top: 1px solid #333;
-    padding: 15px 0;
+    padding: 15px 20px;
+    text-align: center; /* Centraliza tudo */
 }
 
-.rodape-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    max-width: 1200px;
+.rodape-conteudo {
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 20px;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espaço entre as linhas */
 }
 
-.coluna {
-    flex: 1;
-    margin: 0 15px;
+.linha-info {
+    line-height: 1.6;
 }
 
-.coluna h3 {
-    color: white;
-    font-size: 12px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    letter-spacing: 1.5px;
-    border-bottom: 1px solid #444;
-    display: inline-block;
-    padding-bottom: 3px;
+/* Estilo do separador "|" */
+.separador {
+    margin: 0 8px;
+    color: #444;
 }
 
-.coluna p {
-    margin-bottom: 5px;
-    line-height: 1.4;
-}
-
-/* Links do Rodapé */
+/* Links do rodapé */
 .rodape a {
     color: #ccc;
     text-decoration: none;
@@ -139,11 +127,10 @@ body {
     text-decoration: underline;
 }
 
+/* Destaque para o link de políticas */
 .link-politicas {
-    display: inline-block;
-    margin-top: 5px;
-    font-weight: bold;
     color: white !important;
+    font-weight: bold;
 }
 
 /* =========================================
@@ -160,7 +147,7 @@ body.pagina-branca {
 .documento {
     max-width: 800px;
     margin: 60px auto;
-    padding: 0 20px 100px 20px; /* Padding extra em baixo p/ o rodapé não cobrir */
+    padding: 0 20px 120px 20px; /* Padding extra para rodapé */
 }
 
 .voltar {
@@ -229,7 +216,7 @@ body.pagina-branca {
 body.pagina-contato {
     overflow-y: auto;
     overflow-x: hidden;
-    background-color: black; /* Garante fundo preto */
+    background-color: black;
 }
 
 .container-contato {
@@ -238,7 +225,7 @@ body.pagina-contato {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 20px 150px 20px; /* Espaço extra embaixo por causa do rodapé */
+    padding: 100px 20px 180px 20px; /* Espaço extra por conta do rodapé */
 }
 
 .cartao-contato {
@@ -333,33 +320,35 @@ body.pagina-contato {
    7. RESPONSIVIDADE (CELULARES)
    ========================================= */
 @media (max-width: 768px) {
-    /* Ajuste Rodapé no Celular */
+    /* No celular, o rodapé deixa de ser fixo e os itens ficam em pilha */
     .rodape {
-        position: relative; /* Deixa de ser fixo no celular */
-        background: #111;
-    }
-    .rodape-container {
-        flex-direction: column;
+        position: relative;
         text-align: center;
-        padding-top: 20px;
-    }
-    .coluna {
-        margin-bottom: 20px;
-        width: 100%;
+        padding-bottom: 30px;
     }
     
-    /* Ajuste Contato no Celular */
+    .linha-info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 15px;
+    }
+
+    /* Esconde o separador | no celular pois vai ficar um embaixo do outro */
+    .separador {
+        display: none;
+    }
+
+    .item {
+        min-width: 80vw;
+        margin-left: 20px;
+        padding-left: 0;
+    }
+
     .cartao-contato h1 {
         font-size: 24px;
     }
     .botao-link {
         font-size: 16px;
-    }
-    
-    /* Ajuste Galeria no Celular */
-    .item {
-        min-width: 80vw; /* Foto ocupa quase toda a largura */
-        margin-left: 20px;
-        padding-left: 0;
     }
 }
