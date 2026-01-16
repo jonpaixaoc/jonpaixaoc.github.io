@@ -134,7 +134,6 @@ body.pagina-contato {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Ajuste de padding para não bater no rodapé */
     padding: 100px 20px 140px 20px; 
 }
 
@@ -174,7 +173,6 @@ body.pagina-contato {
     padding-bottom: 5px;
 }
 
-/* Botões grandes da página de contato */
 .botao-link {
     display: block;
     color: white;
@@ -202,17 +200,64 @@ body.pagina-contato {
 }
 .ver-mapa:hover { background: white; color: black; }
 
-/* Página Branca (Políticas) */
+/* =========================================
+   6. PÁGINA DE POLÍTICAS (CORRIGIDA)
+   ========================================= */
 body.pagina-branca {
-    background-color: white !important;
-    color: #333;
-    overflow-y: auto;
-    font-family: sans-serif;
+    background-color: #ffffff !important;
+    color: #333333;
+    overflow-y: auto; /* Permite rolar a página */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
-.documento { max-width: 800px; margin: 50px auto; padding: 20px; }
-.voltar { color: #888; text-decoration: none; display: block; margin-bottom: 30px; font-weight: bold;}
 
-@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.documento {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px 40px 120px 40px; /* Padding extra embaixo p/ o rodapé não cobrir */
+}
+
+/* Título Principal (H1) */
+.documento h1 {
+    font-size: 26px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #000;
+    letter-spacing: 1px;
+}
+
+/* Subtítulos (H2) */
+.documento h2 {
+    font-size: 16px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #000;
+    border-bottom: 2px solid #eee; /* Linha cinza elegante */
+    padding-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+/* Parágrafos */
+.documento p {
+    font-size: 15px;
+    line-height: 1.6; /* Espaçamento para leitura fácil */
+    margin-bottom: 15px;
+    text-align: justify; /* Texto alinhado dos dois lados */
+    color: #444;
+}
+
+/* Listas */
+.documento ul {
+    margin-bottom: 20px;
+    padding-left: 40px;
+}
+
+.documento li {
+    margin-bottom: 8px;
+    color: #444;
+    line-height: 1.5;
+}
 
 /* CELULAR */
 @media (max-width: 768px) {
@@ -220,4 +265,8 @@ body.pagina-branca {
     .linha-rodape { display: flex; flex-direction: column; gap: 5px; margin-bottom: 15px; }
     .separador { display: none; }
     .item { min-width: 85vw; margin-left: 20px; padding: 0; }
+    
+    /* Ajuste Política Celular */
+    .documento { padding: 20px; }
+    .documento h1 { font-size: 20px; }
 }
