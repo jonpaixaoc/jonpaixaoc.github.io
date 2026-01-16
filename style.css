@@ -11,11 +11,11 @@ body {
     background-color: black;
     color: white;
     font-family: Arial, sans-serif;
-    overflow-x: hidden; /* Evita rolagem lateral indesejada */
+    overflow-x: hidden;
 }
 
 /* =========================================
-   2. MENU SUPERIOR (PÁGINA ESCURA)
+   2. MENU SUPERIOR
    ========================================= */
 .menu {
     position: fixed;
@@ -78,14 +78,14 @@ body {
 }
 
 /* =========================================
-   4. RODAPÉ (ESTILO LARGO / 3 LINHAS)
+   4. RODAPÉ PADRÃO (PRETO - PARA O SITE)
    ========================================= */
 .rodape {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: black; /* Fundo preto sólido */
+    background: black; /* Fundo preto */
     border-top: 1px solid #222;
     padding: 15px 0;
     z-index: 100;
@@ -199,24 +199,22 @@ body.pagina-contato {
 .ver-mapa:hover { background: white; color: black; }
 
 /* =========================================
-   6. PÁGINA DE POLÍTICAS (CORRIGIDA)
+   6. PÁGINA DE POLÍTICAS (FORMATADA)
    ========================================= */
-/* Fundo Branco obrigatório */
 body.pagina-branca {
     background-color: #ffffff !important;
     color: #333333 !important;
-    overflow-y: auto; /* Permite rolar */
+    overflow-y: auto;
     font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* Caixa do Documento */
 .documento {
     max-width: 800px;
     margin: 40px auto;
-    padding: 20px 40px 120px 40px; /* Padding bottom grande pro rodapé não cobrir */
+    padding: 20px 40px 140px 40px; /* Padding extra para o rodapé */
 }
 
-/* Título Principal (H1) */
+/* Título */
 .documento h1 {
     font-size: 28px;
     margin-bottom: 10px;
@@ -226,29 +224,28 @@ body.pagina-branca {
     letter-spacing: 2px;
 }
 
-/* Subtítulos (H2) */
+/* Subtítulos */
 .documento h2 {
     font-size: 16px;
     margin-top: 40px;
     margin-bottom: 15px;
     text-transform: uppercase;
     color: #111;
-    border-bottom: 1px solid #ddd; /* Linha cinza */
+    border-bottom: 1px solid #ddd;
     padding-bottom: 5px;
     letter-spacing: 1px;
     font-weight: bold;
 }
 
-/* Parágrafos */
+/* Textos */
 .documento p {
     font-size: 16px;
-    line-height: 1.8; /* Espaçamento entre linhas */
+    line-height: 1.8;
     margin-bottom: 20px;
     text-align: justify;
     color: #444;
 }
 
-/* Listas */
 .documento ul {
     margin-bottom: 30px;
     padding-left: 40px;
@@ -261,22 +258,48 @@ body.pagina-branca {
     line-height: 1.6;
 }
 
-/* Animação */
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
 /* =========================================
-   7. RESPONSIVIDADE (CELULARES)
+   7. AJUSTE: RODAPÉ CLARO (SÓ PARA PÁGINA BRANCA)
+   ========================================= */
+/* Quando o rodapé estiver dentro de body.pagina-branca, ele muda de cor */
+body.pagina-branca .rodape {
+    background-color: #f9f9f9; /* Cinza quase branco */
+    border-top: 1px solid #ddd; /* Borda suave */
+    color: #555; /* Texto cinza escuro */
+}
+
+body.pagina-branca .rodape a {
+    color: #333; /* Links escuros */
+}
+
+body.pagina-branca .rodape a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+body.pagina-branca .separador {
+    color: #bbb; /* Separador cinza claro */
+}
+
+body.pagina-branca .link-politicas {
+    color: black !important; /* Destaque preto */
+}
+
+/* =========================================
+   8. RESPONSIVIDADE (CELULAR)
    ========================================= */
 @media (max-width: 768px) {
-    /* Ajuste Rodapé Celular */
     .rodape { position: relative; background: #050505; padding-bottom: 30px;}
+    
+    /* Ajuste para rodapé claro no celular */
+    body.pagina-branca .rodape { background: #f9f9f9; }
+
     .linha-rodape { display: flex; flex-direction: column; gap: 5px; margin-bottom: 15px; }
     .separador { display: none; }
     
-    /* Ajuste Galeria Celular */
     .item { min-width: 85vw; margin-left: 20px; padding: 0; }
-    
-    /* Ajuste Texto Política Celular */
     .documento { padding: 20px 20px 50px 20px; }
     .documento h1 { font-size: 22px; }
 }
