@@ -1,4 +1,6 @@
-/* Zera tudo para começar limpo */
+/* =========================================
+   1. CONFIGURAÇÕES GERAIS (RESET)
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -9,129 +11,158 @@ body {
     background-color: black; /* Fundo preto chique */
     color: white;
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Impede rolagem normal */
+    overflow: hidden; /* Impede rolagem na Home (Galeria) */
 }
 
-/* CONFIGURAÇÃO DO MENU */
+/* =========================================
+   2. MENU SUPERIOR (FIXO)
+   ========================================= */
 .menu {
-    position: fixed; /* Fica preso na tela */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    display: flex; /* Itens lado a lado */
-    justify-content: space-between; /* Espalha: um na esquerda, outro na direita */
+    display: flex;
+    justify-content: space-between;
     padding: 30px 50px;
-    background: transparent; /* Transparente */
-    z-index: 10; /* Fica por cima das fotos */
-    text-transform: uppercase; /* Letras maiúsculas */
+    background: transparent;
+    z-index: 50; /* Bem acima de tudo */
+    text-transform: uppercase;
     font-size: 12px;
-    letter-spacing: 2px; /* Espaço entre as letras */
+    letter-spacing: 2px;
 }
 
 .links a {
     color: white;
-    text-decoration: none; /* Tira o sublinhado */
+    text-decoration: none;
     margin-left: 20px;
     opacity: 0.7;
+    transition: 0.3s;
 }
 
-.links a:hover {
-    opacity: 1; /* Brilha quando passa o mouse */
+.links a:hover, .links a.ativo {
+    opacity: 1;
 }
 
-/* A GALERIA HORIZONTAL */
+/* =========================================
+   3. GALERIA HORIZONTAL (HOME)
+   ========================================= */
 .galeria {
-    display: flex; /* Coloca as fotos em linha */
-    height: 100vh; /* 100% da altura da tela */
+    display: flex;
+    height: 100vh;
     width: 100%;
-    overflow-x: auto; /* Permite rolar para o lado */
-    align-items: center; /* Centraliza verticalmente */
-    
-    /* Esconde a barra de rolagem feia */
+    overflow-x: auto; /* Rolagem lateral */
+    align-items: center;
     scrollbar-width: none; /* Firefox */
 }
 .galeria::-webkit-scrollbar { 
     display: none; /* Chrome */
 }
 
-/* AS FOTOS */
 .item {
-    min-width: 400px; /* Tamanho da foto */
-    height: 60vh; /* Altura da foto */
-    margin-left: 50px; /* Espaço entre elas */
-    padding-left: 50px; /* Espaço inicial */
+    min-width: 400px;
+    height: 60vh;
+    margin-left: 50px;
+    padding-left: 50px;
 }
 
 .item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Preenche o espaço sem esticar */
-    filter: grayscale(100%); /* Deixa preto e branco */
-    transition: 0.5s; /* Animação suave */
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: 0.5s;
 }
 
-/* Quando passa o mouse na foto */
 .item img:hover {
-    filter: grayscale(0%); /* Volta a ter cor */
-    transform: scale(1.05); /* Aumenta um pouquinho */
-}
-
-/* CONFIGURAÇÃO DO RODAPÉ */
-.rodape {
-    position: fixed; /* Prende na tela */
-    bottom: 0;      /* Cola no chão */
-    left: 0;
-    width: 100%;    /* Ocupa a largura toda */
-    
-    text-align: center; /* Texto no meio */
-    padding: 20px;
-    
-    /* Um fundo degradê preto para o texto ficar legível 
-       mesmo se passar por cima de uma foto clara */
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-    
-    color: #888; /* Cinza claro para não chamar tanta atenção quanto o menu */
-    font-size: 11px;
-    letter-spacing: 1px;
-    z-index: 10; /* Garante que fique por cima das fotos */
-}
-
-/* Estilo do Link dentro do rodapé */
-.rodape a {
-    color: white;       /* O link fica branco para destacar do texto cinza */
-    text-decoration: none;
-    font-weight: bold;  /* Deixa o link mais gordinho */
-    transition: 0.3s;
-    border-bottom: 1px solid transparent; /* Prepara uma linha invisível */
-}
-
-/* Quando passa o mouse no link */
-.rodape a:hover {
-    color: #ccc;
-    border-bottom: 1px solid #ccc; /* Faz aparecer uma linha embaixo */
+    filter: grayscale(0%);
+    transform: scale(1.05);
 }
 
 /* =========================================
-   ESTILO DA PÁGINA DE POLÍTICAS (CLEAN)
+   4. NOVO RODAPÉ (3 COLUNAS)
    ========================================= */
+.rodape {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95); /* Quase sólido para leitura */
+    color: #aaa;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    z-index: 40; /* Fica acima das fotos */
+    border-top: 1px solid #333;
+    padding: 15px 0;
+}
 
-/* Sobrepõe o fundo preto do site principal */
+.rodape-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.coluna {
+    flex: 1;
+    margin: 0 15px;
+}
+
+.coluna h3 {
+    color: white;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #444;
+    display: inline-block;
+    padding-bottom: 3px;
+}
+
+.coluna p {
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+/* Links do Rodapé */
+.rodape a {
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.rodape a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.link-politicas {
+    display: inline-block;
+    margin-top: 5px;
+    font-weight: bold;
+    color: white !important;
+}
+
+/* =========================================
+   5. PÁGINA DE POLÍTICAS (CLEAN/BRANCA)
+   ========================================= */
 body.pagina-branca {
     background-color: #ffffff !important;
     color: #333333;
-    overflow-y: auto; /* Permite rolar a página */
+    overflow-y: auto;
     overflow-x: hidden;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fonte limpa */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/* A folha de papel centralizada */
 .documento {
-    max-width: 800px; /* Largura ideal para leitura */
-    margin: 60px auto; /* Centraliza na tela */
-    padding: 0 20px;
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px 100px 20px; /* Padding extra em baixo p/ o rodapé não cobrir */
 }
 
-/* O botão de voltar */
 .voltar {
     display: inline-block;
     margin-bottom: 40px;
@@ -143,10 +174,9 @@ body.pagina-branca {
 }
 .voltar:hover {
     color: #000;
-    transform: translateX(-5px); /* Move um pouquinho pra esquerda */
+    transform: translateX(-5px);
 }
 
-/* Títulos */
 .documento header {
     text-align: center;
     margin-bottom: 60px;
@@ -176,17 +206,16 @@ body.pagina-branca {
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-left: 3px solid #000; /* Detalhe elegante na lateral */
+    border-left: 3px solid #000;
     padding-left: 15px;
 }
 
-/* Textos e Listas */
-.documento p {
+.documento p, .documento li {
     font-size: 16px;
-    line-height: 1.8; /* Espaçamento entre linhas confortável */
+    line-height: 1.8;
     color: #444;
     margin-bottom: 20px;
-    text-align: justify; /* Texto justificado fica elegante em documentos */
+    text-align: justify;
 }
 
 .documento ul {
@@ -194,32 +223,13 @@ body.pagina-branca {
     padding-left: 40px;
 }
 
-.documento li {
-    font-size: 16px;
-    line-height: 1.8;
-    color: #444;
-    margin-bottom: 8px;
-}
-
-/* Rodapé simples da página branca */
-.documento footer {
-    margin-top: 80px;
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-    text-align: center;
-    font-size: 12px;
-    color: #aaa;
-
-}
-
 /* =========================================
-   ESTILO DA PÁGINA DE CONTATO (DARK)
+   6. PÁGINA DE CONTATO (DARK)
    ========================================= */
-
-/* Permite rolagem caso a tela seja pequena na vertical */
 body.pagina-contato {
-    overflow-y: auto; 
+    overflow-y: auto;
     overflow-x: hidden;
+    background-color: black; /* Garante fundo preto */
 }
 
 .container-contato {
@@ -228,26 +238,23 @@ body.pagina-contato {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 20px 80px 20px; /* Espaço para menu e rodapé */
-    background: black; /* Fundo sólido */
-    /* Opcional: Uma imagem de fundo escura bem sutil ficaria linda aqui */
-    /* background: url('caminho-da-sua-imagem.jpg') no-repeat center center/cover; */
+    padding: 100px 20px 150px 20px; /* Espaço extra embaixo por causa do rodapé */
 }
 
 .cartao-contato {
     max-width: 600px;
     width: 100%;
     text-align: center;
-    animation: fadeIn 1s ease-in-out; /* Efeito suave ao abrir */
+    animation: fadeIn 1s ease-in-out;
 }
 
-/* Títulos */
 .cartao-contato h1 {
     font-size: 32px;
     text-transform: uppercase;
     letter-spacing: 4px;
     margin-bottom: 10px;
     font-weight: normal;
+    color: white;
 }
 
 .cartao-contato .intro {
@@ -261,23 +268,21 @@ body.pagina-contato {
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #555; /* Cinza escuro para subtítulos */
+    color: #555;
     margin-bottom: 20px;
+    margin-top: 30px;
     border-bottom: 1px solid #333;
     display: inline-block;
     padding-bottom: 5px;
 }
 
-/* Grupos de informação */
 .info-grupo {
-    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Espaço entre os links */
+    gap: 15px;
 }
 
-/* Links de Contato (Botões minimalistas) */
 .botao-link {
     color: white;
     text-decoration: none;
@@ -285,20 +290,20 @@ body.pagina-contato {
     transition: 0.3s;
     padding: 10px 20px;
     border: 1px solid transparent;
+    display: block;
 }
 
 .botao-link:hover {
     color: #ccc;
-    border: 1px solid #333; /* Borda sutil ao passar o mouse */
-    letter-spacing: 1px; /* Efeito elegante de expansão */
+    border: 1px solid #333;
+    letter-spacing: 1px;
 }
 
-/* Estilo do Endereço */
 .endereco p {
     color: #ccc;
     line-height: 1.6;
     font-size: 16px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .ver-mapa {
@@ -310,6 +315,7 @@ body.pagina-contato {
     transition: 0.3s;
     border: 1px solid #333;
     padding: 8px 15px;
+    display: inline-block;
 }
 
 .ver-mapa:hover {
@@ -318,18 +324,42 @@ body.pagina-contato {
     border-color: white;
 }
 
-/* Animação de entrada */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsivo para celulares */
-@media (max-width: 600px) {
+/* =========================================
+   7. RESPONSIVIDADE (CELULARES)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Ajuste Rodapé no Celular */
+    .rodape {
+        position: relative; /* Deixa de ser fixo no celular */
+        background: #111;
+    }
+    .rodape-container {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 20px;
+    }
+    .coluna {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    
+    /* Ajuste Contato no Celular */
     .cartao-contato h1 {
         font-size: 24px;
     }
     .botao-link {
         font-size: 16px;
+    }
+    
+    /* Ajuste Galeria no Celular */
+    .item {
+        min-width: 80vw; /* Foto ocupa quase toda a largura */
+        margin-left: 20px;
+        padding-left: 0;
     }
 }
